@@ -30,12 +30,7 @@ LDG_Frontend/
 ├── public/
 │   └── assets/
 │       └── images/              # ⬅️ AGREGAR IMÁGENES AQUÍ
-│           ├── logo-colegio.png
-│           ├── estudiantes-foto.jpg
-│           └── universidades/
-│               ├── univalle.png
-│               ├── javeriana.png
-│               └── icesi.png
+│   
 ├── src/
 │   ├── components/              # Componentes reutilizables
 │   │   ├── common/             # Botones, Inputs, Loaders
@@ -62,18 +57,7 @@ LDG_Frontend/
 ```bash
 npm install
 ```
-
-### 2. Agregar imágenes requeridas
-
-Coloca las siguientes imágenes en `public/assets/images/`:
-
-- `logo-colegio.png` - Logo del colegio
-- `estudiantes-foto.jpg` - Foto de estudiantes en aula
-- `universidades/univalle.png` - Logo Universidad del Valle
-- `universidades/javeriana.png` - Logo Javeriana
-- `universidades/icesi.png` - Logo ICESI
-
-### 3. Configurar variables de entorno
+### 2. Configurar variables de entorno
 
 El archivo `.env` ya está creado con:
 ```env
@@ -81,7 +65,7 @@ VITE_API_URL=http://localhost:5000/api
 VITE_APP_NAME=Colegio León de Greiff
 ```
 
-### 4. Iniciar el servidor de desarrollo
+### 3. Iniciar el servidor de desarrollo
 ```bash
 npm run dev
 ```
@@ -131,35 +115,20 @@ La aplicación estará disponible en: `http://localhost:3000`
 
 ## 🔄 Próximas Funcionalidades
 
-El dashboard se expandirá con módulos adicionales según tus requerimientos:
-- Gestión de usuarios
+El dashboard se expandirá con módulos adicionales según los requerimientos:
 - Carga y gestión de documentos PDF
-- Reportes y estadísticas
-- Y más módulos que especifiques...
+- Y más módulos...
 
 ## 📝 Scripts Disponibles
 
 ```bash
 npm run dev      # Modo desarrollo
-npm run build    # Build para producción
-npm run preview  # Preview del build
-npm run lint     # Ejecutar linter
 ```
 
 ## 🔗 Conexión con Backend
 
 Este frontend se conecta con el repositorio `LDG_Backend`.
-
-Asegúrate de que el backend esté corriendo en la URL configurada en `.env`:
 ```
-VITE_API_URL=http://localhost:5000/api
-```
-
-## 👨‍💻 Desarrollo
-
-Creado con TypeScript para mayor seguridad y mantenibilidad.
-Arquitectura modular y escalable para futuras expansiones.
 
 ## 📄 Licencia
-
 © 2025 Colegio León de Greiff. Todos los derechos reservados.
