@@ -156,7 +156,7 @@ const Login: React.FC = () => {
                   <img
                     src="/assets/images/universidades/icesi.png"
                     alt="Universidad ICESI"
-                    className="h-8 sm:h-10 md:h-11 lg:h-13 xl:h-16 max-h-8 sm:max-h-10 md:max-h-11 lg:max-h-13 xl:max-h-16 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity duration-200"
+                    className="h-7 sm:h-8 md:h-9 lg:h-11 xl:h-14 max-h-7 sm:max-h-8 md:max-h-9 lg:max-h-11 xl:max-h-14 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity duration-200"
                     onError={(e) => e.currentTarget.style.display = 'none'}
                   />
                 </a>
