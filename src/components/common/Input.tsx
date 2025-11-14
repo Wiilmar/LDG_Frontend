@@ -18,7 +18,6 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ label, error, helperText, fullWidth = true, className = '', value, placeholder, ...props }, ref) => {
     const [isFocused, setIsFocused] = useState(false);
     const widthStyle = fullWidth ? 'w-full' : '';
-    const errorStyle = error ? 'border-red-500 focus:ring-red-500' : 'border-gray-900 focus:ring-primary-500';
     
     // La etiqueta flota si hay valor o si el campo está enfocado
     const hasValue = value !== undefined && value !== null && value !== '';
@@ -32,12 +31,12 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
               absolute inset-0
               border-2 rounded-lg
               pointer-events-none
-              transition-colors duration-200
+              transition-all duration-300 ease-out
               z-0
               ${error 
-                ? 'border-red-500' 
+                ? 'border-red-500 shadow-red-500/20 shadow-md' 
                 : isFocused 
-                  ? 'border-primary-500' 
+                  ? 'border-primary-500 shadow-primary-500/30 shadow-lg' 
                   : 'border-gray-900'
               }
             `}
@@ -60,9 +59,9 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           {label && (
             <label 
               className={`
-                absolute left-4 transition-all duration-200 pointer-events-none z-20
+                absolute left-4 transition-all duration-300 ease-out pointer-events-none z-20
                 ${shouldFloat 
-                  ? 'top-0 translate-y-[-35%] text-lg text-gray-700 font-medium' 
+                  ? 'top-0 translate-y-[-35%] text-lg text-gray-700 font-medium scale-95' 
                   : 'top-1/2 -translate-y-1/2 text-lg text-gray-500'
                 }
               `}
@@ -80,13 +79,14 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
               ${widthStyle}
               px-4 rounded-lg
               focus:outline-none
-              transition-all duration-200
+              transition-all duration-300 ease-out
               disabled:bg-gray-100 disabled:cursor-not-allowed
               placeholder-gray-500 placeholder:text-base
               relative z-10
               bg-transparent
               text-base
               ${shouldFloat ? 'pt-6 pb-3' : 'py-3.5'}
+              ${isFocused ? 'transform scale-[1.01]' : ''}
             `}
             onFocus={(e) => {
               setIsFocused(true);
@@ -101,9 +101,9 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         </div>
         
         {error && (
-          <p className="mt-1 text-sm text-red-600 flex items-center">
+          <p className="mt-1 text-sm text-red-600 flex items-center animate-fade-in-down">
             <svg
-              className="w-4 h-4 mr-1"
+              className="w-4 h-4 mr-1 animate-bounce-subtle"
               fill="currentColor"
               viewBox="0 0 20 20"
             >

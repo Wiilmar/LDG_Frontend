@@ -13,6 +13,7 @@ import Input from '@components/common/Input';
 import Button from '@components/common/Button';
 import Loader from '@components/common/Loader';
 import ErrorMessage from '@components/common/ErrorMessage';
+import Carrusel from '@components/common/Carrusel';
 import { useConsulta } from '@hooks/useConsulta';
 import { validarIdentificacion } from '@utils/validators';
 import { formatearTamanioArchivo, formatearFecha, descargarPDF } from '@utils/helpers';
@@ -88,7 +89,7 @@ const Consulta: React.FC = () => {
       <div className="flex-1 flex">
         {/* Panel Izquierdo - Formulario (oculto en móvil cuando hay resultados) */}
         <div 
-          className={`w-full lg:w-1/3 flex items-center justify-center p-8 ${consultaRealizada ? 'hidden lg:flex' : 'flex'}`}
+          className={`w-full lg:w-1/3 flex items-center justify-center p-8 animate-fade-in-down ${consultaRealizada ? 'hidden lg:flex' : 'flex'}`}
           style={{
             background: 'linear-gradient(180deg, #FFFFFF 0%, #AACAF5 100%)'
           }}
@@ -97,11 +98,11 @@ const Consulta: React.FC = () => {
             {/* Logo y encabezado del colegio */}
             <div className="text-center mb-8">
               {/* Logo del Colegio */}
-              <div className="mb-5">
+              <div className="mb-5 animate-scale-in">
                 <img
                   src="/assets/images/logo-colegio.png"
                   alt="Logo Colegio León de Greiff"
-                  className="h-44 sm:h-48 md:h-56 lg:h-60 xl:h-64 w-auto mx-auto object-contain"
+                  className="h-44 sm:h-48 md:h-56 lg:h-60 xl:h-64 w-auto mx-auto object-contain transition-smooth hover:scale-105"
                   onError={(e) => {
                     e.currentTarget.style.display = 'none';
                   }}
@@ -123,10 +124,10 @@ const Consulta: React.FC = () => {
             </div>
 
             {/* Pestañas */}
-            <div className="relative bg-white rounded-full p-1.5 shadow-md mb-0 z-10 w-[85%] sm:w-[80%] md:max-w-sm mx-auto">
+            <div className="relative bg-white rounded-full p-1.5 shadow-md mb-0 z-10 w-[85%] sm:w-[80%] md:max-w-sm mx-auto animate-fade-in-up hover-glow transition-smooth">
               {/* Fondo deslizante */}
               <div
-                className="absolute top-1.5 bottom-1.5 rounded-full bg-primary-700 transition-all duration-300 ease-in-out"
+                className="absolute top-1.5 bottom-1.5 rounded-full bg-primary-700 transition-all duration-500 ease-out shadow-lg"
                 style={{
                   width: 'calc(50% - 6px)',
                   left: tabActiva === 'login' ? '6px' : 'calc(50% + 0px)',
@@ -137,20 +138,20 @@ const Consulta: React.FC = () => {
               <div className="relative flex">
                 <button
                   onClick={irALogin}
-                  className={`flex-1 px-6 py-3 font-semibold rounded-full transition-colors duration-300 ${
+                  className={`flex-1 px-6 py-3 font-semibold rounded-full transition-all duration-300 active-scale ${
                     tabActiva === 'login'
                       ? 'text-white'
-                      : 'text-gray-700'
+                      : 'text-gray-700 hover:text-gray-900'
                   }`}
                 >
                   Iniciar Sesión
                 </button>
                 <button
                   onClick={() => setTabActiva('consulta')}
-                  className={`flex-1 px-6 py-3 font-semibold rounded-full transition-colors duration-300 ${
+                  className={`flex-1 px-6 py-3 font-semibold rounded-full transition-all duration-300 active-scale ${
                     tabActiva === 'consulta'
                       ? 'text-white'
-                      : 'text-gray-700'
+                      : 'text-gray-700 hover:text-gray-900'
                   }`}
                 >
                   Consultar
@@ -159,7 +160,7 @@ const Consulta: React.FC = () => {
             </div>
 
             {/* Contenedor con fondo para formulario */}
-            <div className="bg-white bg-opacity-40 backdrop-blur-sm rounded-3xl pt-10 px-6 sm:px-8 pb-4 sm:pb-6 shadow-lg -mt-6">
+            <div className="glass-strong rounded-3xl pt-10 px-6 sm:px-8 pb-4 sm:pb-6 shadow-2xl -mt-6 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
               {/* Formulario de búsqueda */}
               <div className="min-h-[350px]">
                 <form onSubmit={handleSubmit} className="space-y-6">
@@ -216,33 +217,28 @@ const Consulta: React.FC = () => {
         {/* Panel Derecho - Resultados o Imagen (visible solo en desktop o cuando no hay resultados en móvil) */}
         <div className={`${consultaRealizada ? 'w-full' : 'hidden'} lg:block lg:w-2/3 relative`}>
           {!consultaRealizada ? (
-            // Mostrar imagen de fondo cuando no hay búsqueda
+            // Mostrar carrusel de imágenes cuando no hay búsqueda
             <>
-              <div 
-                className="absolute inset-0 bg-cover bg-center"
-                style={{ 
-                  backgroundImage: 'url(/assets/images/estudiantes-foto.png)',
-                  backgroundPosition: 'center',
-                  backgroundSize: 'cover'
-                }}
+              {/* Carrusel de imágenes */}
+              <Carrusel 
+                totalImagenes={7}
+                intervalo={5000}
+                className="absolute inset-0"
               >
-                <div className="absolute inset-0 bg-black bg-opacity-20"></div>
-              </div>
-              
-              {/* Logos de universidades */}
-              <div className="relative z-10 h-full flex items-end justify-center pb-6 px-4">
-                <div className="bg-white bg-opacity-70 px-3 sm:px-4 lg:px-6 xl:px-8 py-3 sm:py-4 lg:py-5 rounded-lg shadow-lg w-full max-w-6xl">
+                {/* Logos de universidades */}
+                <div className="h-full flex items-end justify-center pb-6 px-4 pointer-events-auto">
+                  <div className="bg-white bg-opacity-70 px-3 sm:px-4 lg:px-6 xl:px-8 py-3 sm:py-4 lg:py-5 rounded-lg shadow-lg w-full max-w-6xl">
                   <div className="flex items-center justify-center gap-2 sm:gap-3 md:gap-4 lg:gap-6 xl:gap-8">
                     <a 
                       href="https://usbcali.edu.co" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="transform hover:scale-110 transition-transform duration-300 flex-shrink"
+                      className="transform hover:scale-110 hover:-rotate-2 transition-all duration-300 flex-shrink active-scale"
                     >
                       <img
                         src="/assets/images/universidades/san-buenaventura.png"
                         alt="Universidad de San Buenaventura"
-                        className="h-10 sm:h-12 md:h-14 lg:h-16 xl:h-20 max-h-10 sm:max-h-12 md:max-h-14 lg:max-h-16 xl:max-h-20 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity duration-200"
+                        className="h-10 sm:h-12 md:h-14 lg:h-16 xl:h-20 max-h-10 sm:max-h-12 md:max-h-14 lg:max-h-16 xl:max-h-20 w-auto object-contain opacity-90 hover:opacity-100 transition-all duration-300 filter hover:drop-shadow-lg"
                         onError={(e) => e.currentTarget.style.display = 'none'}
                       />
                     </a>
@@ -250,12 +246,12 @@ const Consulta: React.FC = () => {
                       href="https://www.javeriana.edu.co/inicio" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="transform hover:scale-110 transition-transform duration-300 flex-shrink"
+                      className="transform hover:scale-110 hover:rotate-2 transition-all duration-300 flex-shrink active-scale"
                     >
                       <img
                         src="/assets/images/universidades/javeriana.png"
                         alt="Pontificia Universidad Javeriana"
-                        className="h-8 sm:h-10 md:h-11 lg:h-13 xl:h-16 max-h-8 sm:max-h-10 md:max-h-11 lg:max-h-13 xl:max-h-16 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity duration-200"
+                        className="h-8 sm:h-10 md:h-11 lg:h-13 xl:h-16 max-h-8 sm:max-h-10 md:max-h-11 lg:max-h-13 xl:max-h-16 w-auto object-contain opacity-90 hover:opacity-100 transition-all duration-300 filter hover:drop-shadow-lg"
                         onError={(e) => e.currentTarget.style.display = 'none'}
                       />
                     </a>
@@ -263,24 +259,25 @@ const Consulta: React.FC = () => {
                       href="https://www.icesi.edu.co" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="transform hover:scale-110 transition-transform duration-300 flex-shrink"
+                      className="transform hover:scale-110 hover:-rotate-2 transition-all duration-300 flex-shrink active-scale"
                     >
                       <img
                         src="/assets/images/universidades/icesi.png"
                         alt="Universidad ICESI"
-                        className="h-7 sm:h-8 md:h-9 lg:h-11 xl:h-14 max-h-7 sm:max-h-8 md:max-h-9 lg:max-h-11 xl:max-h-14 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity duration-200"
+                        className="h-7 sm:h-8 md:h-9 lg:h-11 xl:h-14 max-h-7 sm:max-h-8 md:max-h-9 lg:max-h-11 xl:max-h-14 w-auto object-contain opacity-90 hover:opacity-100 transition-all duration-300 filter hover:drop-shadow-lg"
                         onError={(e) => e.currentTarget.style.display = 'none'}
                       />
                     </a>
                     <img
                       src="/assets/images/universidades/otra.png"
                       alt="Universidad"
-                      className="h-10 sm:h-12 md:h-14 lg:h-16 xl:h-20 max-h-10 sm:max-h-12 md:max-h-14 lg:max-h-16 xl:max-h-20 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity duration-200 transform hover:scale-110 transition-transform duration-300 flex-shrink"
+                      className="h-10 sm:h-12 md:h-14 lg:h-16 xl:h-20 max-h-10 sm:max-h-12 md:max-h-14 lg:max-h-16 xl:max-h-20 w-auto object-contain opacity-90 hover:opacity-100 transition-all duration-300 transform hover:scale-110 hover:rotate-2 flex-shrink filter hover:drop-shadow-lg active-scale"
                       onError={(e) => e.currentTarget.style.display = 'none'}
                     />
                   </div>
                 </div>
               </div>
+              </Carrusel>
             </>
           ) : (
             // Mostrar resultados con fondo blanco
@@ -292,15 +289,14 @@ const Consulta: React.FC = () => {
             >
               <div className="p-8 min-h-full">
                 {/* Botón de regresar (solo visible en móvil) */}
-                <div className="lg:hidden mb-6">
-                  <Button
+                <div className="lg:hidden mb-6 animate-fade-in-down">
+                  <button
                     type="button"
-                    variant="secondary"
                     onClick={handleNuevaConsulta}
-                    className="flex items-center gap-2"
+                    className="inline-flex items-center gap-2 px-4 py-2 text-white bg-primary-700 border-2 border-primary-700 rounded-lg font-medium hover:bg-primary-800 hover:border-primary-800 active:scale-95 transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-primary-500/50"
                   >
                     <svg
-                      className="w-5 h-5"
+                      className="w-5 h-5 flex-shrink-0"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -312,8 +308,8 @@ const Consulta: React.FC = () => {
                         d="M10 19l-7-7m0 0l7-7m-7 7h18"
                       />
                     </svg>
-                    Regresar
-                  </Button>
+                    <span>Regresar</span>
+                  </button>
                 </div>
 
                 {cargando && (
@@ -331,10 +327,10 @@ const Consulta: React.FC = () => {
                 )}
 
                 {!cargando && !error && documentos.length === 0 && (
-                  <div className="h-full flex items-center justify-center">
-                    <div className="text-center bg-white rounded-lg p-8 shadow-lg">
+                  <div className="h-full flex items-center justify-center animate-fade-in-up">
+                    <div className="text-center bg-white rounded-lg p-8 shadow-lg hover-lift transition-smooth">
                       <svg
-                        className="mx-auto h-24 w-24 text-gray-400"
+                        className="mx-auto h-24 w-24 text-gray-400 animate-bounce-subtle"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -357,15 +353,16 @@ const Consulta: React.FC = () => {
                 )}
 
                 {!cargando && !error && documentos.length > 0 && (
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-800 mb-6">
+                  <div className="animate-fade-in-up">
+                    <h3 className="text-2xl font-bold text-gray-800 mb-6 animate-slide-in-left">
                       Documentos Encontrados ({documentos.length})
                     </h3>
                     <div className="space-y-4">
-                      {documentos.map((doc) => (
+                      {documentos.map((doc, index) => (
                         <div
                           key={doc.id}
-                          className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow duration-200"
+                          className="bg-white border border-gray-200 rounded-lg p-6 hover-lift transition-smooth animate-fade-in-up"
+                          style={{ animationDelay: `${index * 0.1}s` }}
                         >
                           <div className="flex items-start justify-between">
                             <div className="flex-1">

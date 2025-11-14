@@ -32,10 +32,10 @@ const ConsultaForm: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-6 animate-fade-in">
       <div className="text-center mb-8">
         {/* Ícono de búsqueda */}
-        <div className="w-28 h-28 mx-auto mb-6 flex items-center justify-center">
+        <div className="w-28 h-28 mx-auto mb-6 flex items-center justify-center animate-scale-in hover:scale-110 transition-all duration-300 active-scale">
           <img
             src="/assets/images/icons/icono-busqueda.png"
             alt="Ícono de búsqueda"

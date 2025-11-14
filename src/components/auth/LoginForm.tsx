@@ -86,10 +86,10 @@ const LoginForm: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-6 animate-fade-in">
       {/* Ícono de usuario */}
-      <div className="flex justify-center mb-6">
-        <div className="w-28 h-28 rounded-full overflow-hidden">
+      <div className="flex justify-center mb-6 animate-scale-in">
+        <div className="w-28 h-28 rounded-full overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-110 active-scale">
           <img
             src="/assets/images/icons/icono-usuario.png"
             alt="Ícono de usuario"
