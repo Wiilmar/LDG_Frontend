@@ -1,11 +1,4 @@
 # 🚀 Sistema de Optimización Automática - Guía Rápida
-
-## ✅ ¡Ya está configurado!
-
-Tu proyecto ahora tiene **optimización automática de imágenes**. Cada vez que agregues o modifiques una imagen, se optimizará automáticamente.
-
-## 🎯 Cómo Funciona
-
 ### Durante el Build (Producción)
 ```bash
 npm run build
@@ -24,13 +17,6 @@ npm run dev
 # Terminal 2: Watcher de imágenes (opcional)
 npm run watch:images
 ```
-
-Con el watcher activo:
-1. Agregas una imagen a `public/assets/images/`
-2. Se genera automáticamente su versión WebP
-3. Ves el progreso en consola
-
-## 📋 Workflow Recomendado
 
 ### Para nuevas imágenes:
 
@@ -85,16 +71,6 @@ npm run build
 
 # Se optimiza automáticamente durante el build
 ```
-
-## 📊 Configuración Actual
-
-### Calidad de Compresión: 80%
-```
-JPG: 80% calidad, progresivo
-PNG: 80% calidad, nivel 9
-WebP: 80% calidad
-```
-
 ### Para ajustar la calidad:
 Edita `vite.config.ts`:
 ```typescript
@@ -152,24 +128,6 @@ npm run build
 npm run dev
 ```
 
-## 🔧 Optimizar Imágenes Existentes (Una vez)
-
-Para optimizar las 7 imágenes del carrusel que ya tienes:
-
-```bash
-npm run optimize:images
-```
-
-Esto procesará TODAS las imágenes en `public/assets/images/` y generará versiones WebP.
-
-## ⚙️ Configuración Avanzada
-
-### Cambiar directorio observado:
-Edita `scripts/watch-images.js`:
-```javascript
-const IMAGES_DIR = path.join(__dirname, '../public/assets/images');
-```
-
 ### Cambiar calidad de compresión:
 Edita `scripts/watch-images.js`:
 ```javascript
@@ -197,14 +155,3 @@ ViteImageOptimizer({
 
 ### "Quiero desactivar la optimización"
 → Comenta los plugins en `vite.config.ts`
-
-## 📈 Próximos Pasos
-
-1. **Ahora mismo**: Ejecuta `npm run optimize:images` para optimizar las existentes
-2. **En desarrollo**: Usa `npm run watch:images` para auto-optimizar nuevas
-3. **En producción**: `npm run build` optimiza automáticamente
-
----
-
-**¡Listo!** Tu sistema de optimización automática está configurado. 
-Solo agrega imágenes y déjalo trabajar. 🚀
