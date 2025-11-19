@@ -5,12 +5,43 @@
 import api from './api';
 import { CredencialesLogin, RespuestaAuth, Usuario } from '../types/auth.types';
 import { TOKEN_STORAGE_KEY, USER_STORAGE_KEY } from '@utils/constants';
+import { validarCredencialesMock } from '../data/mockUsers';
+
+// Flag para usar autenticación mock (cambiar a false cuando se conecte al backend)
+const USE_MOCK_AUTH = true;
 
 /**
  * Servicio para iniciar sesión
  */
 export const iniciarSesion = async (credenciales: CredencialesLogin): Promise<RespuestaAuth> => {
   try {
+    // Autenticación temporal con usuarios mock
+    if (USE_MOCK_AUTH) {
+      const usuarioMock = validarCredencialesMock(credenciales.usuario, credenciales.contrasena);
+      
+      if (usuarioMock) {
+        const token = `mock-token-${usuarioMock.datos.id}-${Date.now()}`;
+        const respuesta: RespuestaAuth = {
+          success: true,
+          mensaje: 'Inicio de sesión exitoso',
+          usuario: usuarioMock.datos,
+          token: token
+        };
+        
+        // Guardar token y usuario en localStorage
+        localStorage.setItem(TOKEN_STORAGE_KEY, token);
+        localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(usuarioMock.datos));
+        
+        return respuesta;
+      } else {
+        return {
+          success: false,
+          mensaje: 'Usuario o contraseña incorrectos'
+        };
+      }
+    }
+    
+    // Autenticación real con backend
     const response = await api.post<RespuestaAuth>('/auth/login', credenciales);
     
     // Guardar token y usuario en localStorage

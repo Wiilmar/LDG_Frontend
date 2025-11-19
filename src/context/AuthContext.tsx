@@ -24,8 +24,14 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   useEffect(() => {
     // Cargar usuario del localStorage al iniciar
     const usuarioGuardado = obtenerUsuarioActual();
-    if (usuarioGuardado) {
+    const tokenGuardado = localStorage.getItem('ldg_auth_token');
+    
+    // Solo restaurar sesión si hay usuario Y token
+    if (usuarioGuardado && tokenGuardado) {
       setUsuario(usuarioGuardado);
+    } else {
+      // Si falta alguno, limpiar todo
+      cerrarSesionService();
     }
     setCargando(false);
   }, []);

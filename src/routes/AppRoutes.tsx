@@ -6,22 +6,36 @@
 
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
+import { useAuth } from '@hooks/useAuth';
 import { RUTAS } from '@utils/constants';
 
 // Páginas
 import Login from '@pages/Login';
 import Consulta from '@pages/Consulta';
 import Dashboard from '@pages/Dashboard';
+import Certificado from '@pages/Certificado';
+import Mantenimiento from '@pages/Mantenimiento';
 import NotFound from '@pages/NotFound';
 
 // Componentes de rutas
 import ProtectedRoute from './ProtectedRoute';
+import Loader from '@components/common/Loader';
 
 const AppRoutes: React.FC = () => {
+  const { estaAutenticado, cargando } = useAuth();
+
+  // Mostrar loader mientras verifica la sesión
+  if (cargando) {
+    return <Loader fullScreen size="large" text="Cargando..." />;
+  }
+
   return (
     <Routes>
-      {/* Ruta raíz - redirige a login */}
-      <Route path={RUTAS.INICIO} element={<Navigate to={RUTAS.LOGIN} replace />} />
+      {/* Ruta raíz - redirige a dashboard si está autenticado, o a login si no */}
+      <Route 
+        path={RUTAS.INICIO} 
+        element={<Navigate to={estaAutenticado ? RUTAS.DASHBOARD : RUTAS.LOGIN} replace />} 
+      />
       
       {/* Rutas públicas */}
       <Route path={RUTAS.LOGIN} element={<Login />} />
@@ -30,6 +44,8 @@ const AppRoutes: React.FC = () => {
       {/* Rutas protegidas */}
       <Route element={<ProtectedRoute />}>
         <Route path={RUTAS.DASHBOARD} element={<Dashboard />} />
+        <Route path={RUTAS.CERTIFICADO} element={<Certificado />} />
+        <Route path={RUTAS.MANTENIMIENTO} element={<Mantenimiento />} />
       </Route>
       
       {/* Ruta 404 */}

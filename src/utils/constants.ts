@@ -38,6 +38,8 @@ export const RUTAS = {
   CONSULTA: '/consulta',
   DASHBOARD: '/dashboard',
   INICIO: '/',
+  CERTIFICADO: '/certificado',
+  MANTENIMIENTO: '/mantenimiento',
   NO_ENCONTRADO: '*',
 };
 
