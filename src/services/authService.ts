@@ -3,7 +3,7 @@
  */
 
 import api from './api';
-import { CredencialesLogin, RespuestaAuth, Usuario } from '@types/auth.types';
+import { CredencialesLogin, RespuestaAuth, Usuario } from '../types/auth.types';
 import { TOKEN_STORAGE_KEY, USER_STORAGE_KEY } from '@utils/constants';
 
 /**

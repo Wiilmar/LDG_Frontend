@@ -15,6 +15,7 @@ import Input from '@components/common/Input';
 import PasswordInput from './PasswordInput';
 import Button from '@components/common/Button';
 import ErrorMessage from '@components/common/ErrorMessage';
+import OptimizedImage from '@components/common/OptimizedImage';
 
 const LoginForm: React.FC = () => {
   const navigate = useNavigate();
@@ -90,10 +91,11 @@ const LoginForm: React.FC = () => {
       {/* Ícono de usuario */}
       <div className="flex justify-center mb-6 animate-scale-in">
         <div className="w-28 h-28 rounded-full overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-110 active-scale">
-          <img
+          <OptimizedImage
             src="/assets/images/icons/icono-usuario.png"
             alt="Ícono de usuario"
             className="w-full h-full object-cover"
+            loading="lazy"
           />
         </div>
       </div>

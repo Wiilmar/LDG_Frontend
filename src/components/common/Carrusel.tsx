@@ -6,6 +6,7 @@
  */
 
 import React, { useState, useEffect } from 'react';
+import OptimizedImage from './OptimizedImage';
 
 interface CarruselProps {
   totalImagenes?: number;
@@ -40,18 +41,12 @@ const Carrusel: React.FC<CarruselProps> = ({
     return () => clearInterval(timer);
   }, [totalImagenes, intervalo]);
 
-  // Precargar imágenes
+  // Precargar solo la primera imagen para mejorar rendimiento
   useEffect(() => {
-    imagenes.forEach((src, index) => {
-      const img = new Image();
-      img.onload = () => {
-        if (index === 0) setCargando(false);
-      };
-      img.onerror = () => {
-        if (index === 0) setCargando(false);
-      };
-      img.src = src;
-    });
+    const img = new Image();
+    img.onload = () => setCargando(false);
+    img.onerror = () => setCargando(false);
+    img.src = imagenes[0];
   }, []);
 
   return (
@@ -69,10 +64,12 @@ const Carrusel: React.FC<CarruselProps> = ({
             index === imagenActual ? 'opacity-100 z-[5]' : 'opacity-0 z-0'
           }`}
         >
-          <img
+          <OptimizedImage
             src={src}
             alt={`Imagen ${index + 1}`}
             className="w-full h-full object-cover"
+            loading={index === 0 ? 'eager' : 'lazy'}
+            priority={index === 0}
             onError={(e) => {
               e.currentTarget.style.display = 'none';
             }}

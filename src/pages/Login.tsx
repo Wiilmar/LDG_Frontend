@@ -10,6 +10,7 @@ import Layout from '@components/layout/Layout';
 import LoginForm from '@components/auth/LoginForm';
 import ConsultaForm from '@components/auth/ConsultaForm';
 import Carrusel from '@components/common/Carrusel';
+import OptimizedImage from '@components/common/OptimizedImage';
 
 type TabType = 'login' | 'consulta';
 
@@ -31,10 +32,12 @@ const Login: React.FC = () => {
             <div className="text-center mb-8">
               {/* Logo del Colegio */}
               <div className="mb-5 animate-scale-in">
-                <img
+                <OptimizedImage
                   src="/assets/images/logo-colegio.png"
                   alt="Logo Colegio León de Greiff"
                   className="h-44 sm:h-48 md:h-56 lg:h-60 xl:h-64 w-auto mx-auto object-contain transition-smooth hover:scale-105"
+                  loading="eager"
+                  priority={true}
                   onError={(e) => {
                     e.currentTarget.style.display = 'none';
                   }}
@@ -120,10 +123,11 @@ const Login: React.FC = () => {
                   rel="noopener noreferrer"
                   className="transform hover:scale-110 hover:-rotate-2 transition-all duration-300 flex-shrink active-scale"
                 >
-                  <img
+                  <OptimizedImage
                     src="/assets/images/universidades/san-buenaventura.png"
                     alt="Universidad de San Buenaventura"
                     className="h-10 sm:h-12 md:h-14 lg:h-16 xl:h-20 max-h-10 sm:max-h-12 md:max-h-14 lg:max-h-16 xl:max-h-20 w-auto object-contain opacity-90 hover:opacity-100 transition-all duration-300 filter hover:drop-shadow-lg"
+                    loading="lazy"
                     onError={(e) => e.currentTarget.style.display = 'none'}
                   />
                 </a>
@@ -133,10 +137,11 @@ const Login: React.FC = () => {
                   rel="noopener noreferrer"
                   className="transform hover:scale-110 hover:rotate-2 transition-all duration-300 flex-shrink active-scale"
                 >
-                  <img
+                  <OptimizedImage
                     src="/assets/images/universidades/javeriana.png"
                     alt="Pontificia Universidad Javeriana"
                     className="h-8 sm:h-10 md:h-11 lg:h-13 xl:h-16 max-h-8 sm:max-h-10 md:max-h-11 lg:max-h-13 xl:max-h-16 w-auto object-contain opacity-90 hover:opacity-100 transition-all duration-300 filter hover:drop-shadow-lg"
+                    loading="lazy"
                     onError={(e) => e.currentTarget.style.display = 'none'}
                   />
                 </a>
@@ -146,17 +151,19 @@ const Login: React.FC = () => {
                   rel="noopener noreferrer"
                   className="transform hover:scale-110 hover:-rotate-2 transition-all duration-300 flex-shrink active-scale"
                 >
-                  <img
+                  <OptimizedImage
                     src="/assets/images/universidades/icesi.png"
                     alt="Universidad ICESI"
                     className="h-7 sm:h-8 md:h-9 lg:h-11 xl:h-14 max-h-7 sm:max-h-8 md:max-h-9 lg:max-h-11 xl:max-h-14 w-auto object-contain opacity-90 hover:opacity-100 transition-all duration-300 filter hover:drop-shadow-lg"
+                    loading="lazy"
                     onError={(e) => e.currentTarget.style.display = 'none'}
                   />
                 </a>
-                <img
+                <OptimizedImage
                   src="/assets/images/universidades/otra.png"
                   alt="Universidad"
                   className="h-10 sm:h-12 md:h-14 lg:h-16 xl:h-20 max-h-10 sm:max-h-12 md:max-h-14 lg:max-h-16 xl:max-h-20 w-auto object-contain opacity-90 hover:opacity-100 transition-all duration-300 transform hover:scale-110 hover:rotate-2 flex-shrink filter hover:drop-shadow-lg active-scale"
+                  loading="lazy"
                   onError={(e) => e.currentTarget.style.display = 'none'}
                 />
               </div>

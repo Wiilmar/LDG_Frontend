@@ -3,7 +3,7 @@
  */
 
 import { useState } from 'react';
-import { EstadoConsulta, DocumentoPDF } from '@types/consulta.types';
+import { EstadoConsulta } from '../types/consulta.types';
 import { buscarDocumentosPorIdentificacion } from '@services/consultaService';
 import { MENSAJES_ERROR } from '@utils/constants';
 

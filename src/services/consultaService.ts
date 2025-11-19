@@ -3,7 +3,7 @@
  */
 
 import api from './api';
-import { ParametrosConsulta, RespuestaConsulta } from '@types/consulta.types';
+import { ParametrosConsulta, RespuestaConsulta } from '../types/consulta.types';
 
 /**
  * Servicio para buscar documentos por número de identificación

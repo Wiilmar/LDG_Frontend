@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import { RUTAS } from '@utils/constants';
 import Input from '@components/common/Input';
 import Button from '@components/common/Button';
+import OptimizedImage from '@components/common/OptimizedImage';
 
 const ConsultaForm: React.FC = () => {
   const navigate = useNavigate();
@@ -36,10 +37,11 @@ const ConsultaForm: React.FC = () => {
       <div className="text-center mb-8">
         {/* Ícono de búsqueda */}
         <div className="w-28 h-28 mx-auto mb-6 flex items-center justify-center animate-scale-in hover:scale-110 transition-all duration-300 active-scale">
-          <img
+          <OptimizedImage
             src="/assets/images/icons/icono-busqueda.png"
             alt="Ícono de búsqueda"
             className="w-full h-full object-contain"
+            loading="lazy"
           />
         </div>
       </div>

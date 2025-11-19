@@ -3,7 +3,7 @@
  */
 
 import React, { createContext, useState, useEffect, ReactNode } from 'react';
-import { Usuario, EstadoAuth } from '@types/auth.types';
+import { Usuario, EstadoAuth } from '../types/auth.types';
 import { obtenerUsuarioActual, cerrarSesion as cerrarSesionService } from '@services/authService';
 
 interface AuthContextType extends EstadoAuth {
