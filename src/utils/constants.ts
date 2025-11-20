@@ -39,6 +39,7 @@ export const RUTAS = {
   DASHBOARD: '/dashboard',
   INICIO: '/',
   CERTIFICADO: '/certificado',
+  MANTENIMIENTO: '/mantenimiento',
   NO_ENCONTRADO: '*',
 };
 

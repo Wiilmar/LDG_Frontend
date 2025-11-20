@@ -13,6 +13,7 @@ import Login from '@pages/Login';
 import Consulta from '@pages/Consulta';
 import Dashboard from '@pages/Dashboard';
 import Certificado from '@pages/Certificado';
+import Mantenimiento from '@pages/Mantenimiento';
 import NotFound from '@pages/NotFound';
 
 // Componentes de rutas
@@ -43,6 +44,7 @@ const AppRoutes: React.FC = () => {
       <Route element={<ProtectedRoute />}>
         <Route path={RUTAS.DASHBOARD} element={<Dashboard />} />
         <Route path={RUTAS.CERTIFICADO} element={<Certificado />} />
+        <Route path={RUTAS.MANTENIMIENTO} element={<Mantenimiento />} />
       </Route>
       
       {/* Ruta 404 */}
