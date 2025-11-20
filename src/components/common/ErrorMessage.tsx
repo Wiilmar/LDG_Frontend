@@ -1,7 +1,5 @@
 /**
  * Componente ErrorMessage - Mensaje de error
- * 
- * Muestra mensajes de error de forma consistente con un icono y estilo adecuado.
  */
 
 import React from 'react';

@@ -1,8 +1,5 @@
 /**
  * Componente Button - Botón reutilizable con diferentes variantes
- * 
- * Este componente proporciona un botón personalizado con estilos consistentes
- * y diferentes variantes (primary, secondary, danger).
  */
 
 import React from 'react';

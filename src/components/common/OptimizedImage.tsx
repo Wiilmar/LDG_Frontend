@@ -1,8 +1,5 @@
 /**
  * Componente OptimizedImage - Imagen optimizada con soporte WebP
- * 
- * Proporciona soporte automático para formato WebP con fallback a JPG/PNG,
- * lazy loading y optimizaciones de rendimiento.
  */
 
 import React, { useState } from 'react';

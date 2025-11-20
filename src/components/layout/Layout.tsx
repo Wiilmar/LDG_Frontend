@@ -1,6 +1,5 @@
 /**
  * Componente Layout - Estructura general de la aplicación
- * 
  * Proporciona la estructura base con contenido y footer.
  */
 

@@ -1,8 +1,5 @@
 /**
  * Página Login - Vista de inicio de sesión
- * 
- * Esta página muestra el formulario de login en el lado izquierdo
- * y la imagen de los estudiantes en el lado derecho, según el diseño de Figma.
  */
 
 import React, { useState } from 'react';

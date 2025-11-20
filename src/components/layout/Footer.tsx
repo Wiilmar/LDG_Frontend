@@ -1,9 +1,7 @@
 /**
- * Componente Footer - Pie de página con logos de universidades
- * 
+ * Componente Footer - Pie de página con logos de universidades 
  * Muestra los logos de las universidades con convenios educativos.
  */
-
 import React from 'react';
 
 const Footer: React.FC = () => {

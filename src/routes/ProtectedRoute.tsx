@@ -1,6 +1,5 @@
 /**
  * Componente ProtectedRoute - Rutas protegidas por autenticación
- * 
  * Este componente protege las rutas que requieren autenticación.
  * Redirige al login si el usuario no está autenticado.
  */

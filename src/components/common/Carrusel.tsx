@@ -1,8 +1,5 @@
 /**
  * Componente Carrusel - Carrusel automático de imágenes
- * 
- * Muestra imágenes en transición automática con efecto fade
- * sin necesidad de interacción del usuario.
  */
 
 import React, { useState, useEffect } from 'react';

@@ -39,15 +39,13 @@ export const RUTAS = {
   DASHBOARD: '/dashboard',
   INICIO: '/',
   CERTIFICADO: '/certificado',
-  MANTENIMIENTO: '/mantenimiento',
   NO_ENCONTRADO: '*',
 };
 
 // Roles de usuario
 export const ROLES = {
   ADMINISTRADOR: 'administrador',
-  PROFESOR: 'profesor',
-  MANTENIMIENTO: 'mantenimiento',
+  DOCENTE: 'docente',
 } as const;
 
 // Validaciones

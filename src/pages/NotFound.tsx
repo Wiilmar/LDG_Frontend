@@ -1,6 +1,5 @@
 /**
  * Página NotFound - Error 404
- * 
  * Página mostrada cuando el usuario intenta acceder a una ruta que no existe.
  */
 

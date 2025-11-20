@@ -1,9 +1,5 @@
 /**
  * Página Dashboard - Panel de administración
- * 
- * Vista principal después del login con diseño de dos columnas:
- * - Sidebar izquierdo con navegación
- * - Panel derecho con cards de funcionalidades
  */
 
 import React from 'react';
@@ -60,29 +56,8 @@ const Dashboard: React.FC = () => {
               </button>
             </div>
 
-            {/* Card Mantenimiento */}
-            <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center animate-fade-in-up hover:shadow-xl transition-all duration-300" style={{ animationDelay: '0.2s' }}>
-              {/* Espacio para icono */}
-              <div className="w-24 h-24 mb-4 bg-gradient-to-br from-[#93ACCC]/20 to-[#93ACCC]/10 rounded-lg flex items-center justify-center">
-                <div className="w-16 h-16 bg-[#93ACCC]/30 rounded" data-icon="icon-mantenimiento"></div>
-              </div>
-              
-              <h2 className="text-xl font-bold text-gray-800 mb-3">MANTENIMIENTO</h2>
-              
-              <p className="text-gray-700 text-sm mb-6 flex-1">
-                Gestiona las tareas de mantenimiento, permitiendo un control eficiente de las actividades pendientes y completadas.
-              </p>
-              
-              <button
-                onClick={() => navigate(RUTAS.MANTENIMIENTO)}
-                className="w-full bg-[#93ACCC] hover:bg-[#7a92b3] text-white font-semibold py-2 px-4 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg"
-              >
-                Mantenimiento
-              </button>
-            </div>
-
             {/* Card Actualización */}
-            <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center animate-fade-in-up hover:shadow-xl transition-all duration-300" style={{ animationDelay: '0.3s' }}>
+            <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center animate-fade-in-up hover:shadow-xl transition-all duration-300" style={{ animationDelay: '0.2s' }}>
               {/* Espacio para icono */}
               <div className="w-24 h-24 mb-4 bg-gradient-to-br from-[#93ACCC]/20 to-[#93ACCC]/10 rounded-lg flex items-center justify-center">
                 <div className="w-16 h-16 bg-[#93ACCC]/30 rounded" data-icon="icon-actualizacion"></div>
@@ -105,7 +80,7 @@ const Dashboard: React.FC = () => {
           </div>
 
           {/* Footer / Derechos de Autor */}
-          <div className="bg-white rounded-xl shadow-lg p-4 text-center animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+          <div className="bg-white rounded-xl shadow-lg p-4 text-center animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
             <p className="text-[#93ACCC] text-sm font-medium">
               © 2025 Colegio León de Greiff. Todos los derechos reservados.
             </p>

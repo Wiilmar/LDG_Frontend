@@ -15,7 +15,7 @@ export interface Usuario {
   token?: string;
 }
 
-export type RolUsuario = 'administrador' | 'docente' | 'profesor' | 'mantenimiento';
+export type RolUsuario = 'administrador' | 'docente';
 
 export interface RespuestaAuth {
   success: boolean;

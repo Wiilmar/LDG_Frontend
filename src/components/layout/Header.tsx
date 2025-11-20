@@ -1,6 +1,5 @@
 /**
  * Componente Header - Encabezado de la aplicación
- * 
  * Muestra el logo del colegio y el título de la aplicación.
  */
 

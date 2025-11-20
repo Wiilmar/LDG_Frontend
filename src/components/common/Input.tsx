@@ -1,8 +1,5 @@
 /**
  * Componente Input - Campo de entrada reutilizable
- * 
- * Proporciona un input con estilos consistentes, manejo de errores
- * y diferentes tipos (text, password, number, etc.).
  */
 
 import React, { forwardRef, useState } from 'react';

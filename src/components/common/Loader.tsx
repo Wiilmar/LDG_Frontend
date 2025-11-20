@@ -1,7 +1,5 @@
 /**
  * Componente Loader - Indicador de carga
- * 
- * Muestra un spinner animado para indicar que se está procesando algo.
  */
 
 import React from 'react';
