@@ -1,8 +1,5 @@
 /**
  * Componente PasswordInput - Campo de contraseña con visualización
- * 
- * Input especializado para contraseñas que permite mostrar/ocultar
- * el texto mediante un botón con icono de ojo interactivo.
  */
 
 import React, { useState, forwardRef } from 'react';

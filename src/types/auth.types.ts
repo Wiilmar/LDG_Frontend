@@ -12,10 +12,13 @@ export interface Usuario {
   usuario: string;
   nombre: string;
   rol: RolUsuario;
+  genero?: Genero;
   token?: string;
 }
 
 export type RolUsuario = 'administrador' | 'docente';
+
+export type Genero = 'masculino' | 'femenino';
 
 export interface RespuestaAuth {
   success: boolean;

@@ -20,6 +20,7 @@ export const MOCK_USERS: MockUser[] = [
       usuario: 'wilman',
       nombre: 'Wilman',
       rol: 'administrador',
+      genero: 'masculino',
     }
   },
   {
@@ -30,12 +31,24 @@ export const MOCK_USERS: MockUser[] = [
       usuario: 'wiliam',
       nombre: 'Wiliam',
       rol: 'docente',
+      genero: 'masculino',
+    }
+  },
+  {
+    usuario: 'sandra',
+    contrasena: 'sandra2025',
+    datos: {
+      id: '3',
+      usuario: 'sandra',
+      nombre: 'Sandra',
+      rol: 'administrador',
+      genero: 'femenino',
     }
   }
 ];
 
 /**
- * Valida las credenciales contra los usuarios mock
+ * Valida las credenciales con los datos de los usuarios mock
  */
 export const validarCredencialesMock = (usuario: string, contrasena: string): MockUser | null => {
   const usuarioEncontrado = MOCK_USERS.find(

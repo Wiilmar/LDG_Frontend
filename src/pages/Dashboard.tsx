@@ -24,7 +24,7 @@ const Dashboard: React.FC = () => {
           {/* Card de Bienvenida */}
           <div className="bg-white rounded-xl shadow-lg p-6 md:p-8 animate-fade-in">
             <h1 className="text-2xl md:text-3xl font-bold text-[#93ACCC] mb-3">
-              ¡Bienvenido, {usuario?.nombre || 'usuario'}!
+              ¡{usuario?.genero === 'femenino' ? 'Bienvenida' : 'Bienvenido'}, {usuario?.nombre || 'usuario'}!
             </h1>
             <p className="text-gray-700 leading-relaxed">
               El sistema de gestión tiene como propósito optimizar y fortalecer las actividades asociadas a los
